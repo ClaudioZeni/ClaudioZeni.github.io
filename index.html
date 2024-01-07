@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claudio Zeni — Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Variables ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal-50:  #f0fdfa;
+      --teal-100: #ccfbf1;
+      --teal-200: #99f6e4;
+      --teal-400: #2dd4bf;
+      --teal-500: #14b8a6;
+      --teal-600: #0d9488;
+      --teal-700: #0f766e;
+      --teal-800: #115e59;
+      --teal-900: #134e4a;
+      --blue-400: #60a5fa;
+      --blue-500: #3b82f6;
+      --blue-600: #2563eb;
+      --slate-50:  #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --gradient: linear-gradient(135deg, var(--teal-600), var(--blue-600));
+      --gradient-subtle: linear-gradient(135deg, var(--teal-700), var(--slate-900));
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.1);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,.12);
+      --radius: 12px;
+      --max-w: 960px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--slate-50);
+      color: var(--slate-800);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--teal-600); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--blue-600); }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15, 23, 42, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 56px;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: .95rem;
+      color: #fff; letter-spacing: -.02em;
+    }
+    .nav-logo span { color: var(--teal-400); }
+    .nav-links { display: flex; gap: 1.75rem; }
+    .nav-links a {
+      font-size: .82rem; font-weight: 500; color: var(--slate-300);
+      letter-spacing: .01em; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--teal-400); }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--gradient-subtle);
+      padding: 8rem 2rem 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 600px 400px at 20% 50%, rgba(13,148,136,.2), transparent),
+        radial-gradient(ellipse 500px 350px at 80% 30%, rgba(59,130,246,.15), transparent);
+    }
+    .hero-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; gap: 3rem;
+      position: relative;
+    }
+    .hero-photo {
+      flex-shrink: 0;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,.15);
+      background: var(--slate-700);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-photo .placeholder {
+      color: var(--slate-400);
+      font-size: .7rem; font-weight: 500;
+      text-align: center; line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem; font-weight: 700; color: #fff;
+      letter-spacing: -.03em; line-height: 1.15;
+    }
+    .hero-text .subtitle {
+      font-size: 1.05rem; color: var(--teal-200);
+      margin-top: .5rem; font-weight: 400;
+    }
+    .hero-text .tagline {
+      font-size: .92rem; color: var(--slate-300);
+      margin-top: .75rem; max-width: 520px; line-height: 1.65;
+    }
+    .hero-links {
+      display: flex; gap: .75rem; margin-top: 1.5rem; flex-wrap: wrap;
+    }
+    .hero-links a {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .5rem 1rem; border-radius: 8px;
+      font-size: .8rem; font-weight: 500;
+      color: #fff; background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      transition: background .2s, border-color .2s;
+    }
+    .hero-links a:hover {
+      background: rgba(255,255,255,.15);
+      border-color: rgba(255,255,255,.2);
+      color: #fff;
+    }
+    .hero-links svg { width: 16px; height: 16px; }
+
+    /* ── Sections ── */
+    section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .section-title {
+      font-size: 1.5rem; font-weight: 700;
+      letter-spacing: -.02em; margin-bottom: 2rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .section-title::before {
+      content: '';
+      width: 4px; height: 28px; border-radius: 2px;
+      background: var(--gradient);
+    }
+
+    /* ── Timeline ── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 6px; top: 6px; bottom: 6px;
+      width: 2px; background: var(--slate-200);
+      border-radius: 1px;
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 1.75rem;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -2rem; top: 8px;
+      width: 10px; height: 10px; border-radius: 50%;
+      border: 2px solid var(--teal-500);
+      background: var(--slate-50);
+    }
+    .timeline-item.current::before {
+      background: var(--teal-500);
+      box-shadow: 0 0 0 4px rgba(13,148,136,.15);
+    }
+    .timeline-role {
+      font-size: .95rem; font-weight: 600; color: var(--slate-800);
+    }
+    .timeline-org {
+      font-size: .85rem; color: var(--teal-700); font-weight: 500;
+    }
+    .timeline-period {
+      font-size: .78rem; color: var(--slate-400); font-weight: 500;
+      margin-top: .15rem;
+    }
+    .timeline-desc {
+      font-size: .82rem; color: var(--slate-600);
+      margin-top: .35rem; line-height: 1.6;
+    }
+
+    /* ── Education ── */
+    .edu-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+    }
+    .edu-card {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .edu-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--teal-50);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .edu-card h3 { font-size: .85rem; font-weight: 600; color: var(--slate-800); }
+    .edu-card .edu-school { font-size: .78rem; color: var(--teal-700); font-weight: 500; }
+    .edu-card .edu-meta { font-size: .75rem; color: var(--slate-400); margin-top: .15rem; }
+
+    /* ── Publications ── */
+    .pub-category {
+      font-size: .85rem; font-weight: 600; color: var(--teal-700);
+      text-transform: uppercase; letter-spacing: .06em;
+      margin: 2rem 0 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .pub-category:first-child { margin-top: 0; }
+    .pub-list { list-style: none; }
+    .pub-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--slate-100);
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-title {
+      font-size: .88rem; font-weight: 600; color: var(--slate-800);
+      line-height: 1.45;
+    }
+    .pub-title a { color: var(--slate-800); }
+    .pub-title a:hover { color: var(--teal-600); }
+    .pub-authors {
+      font-size: .78rem; color: var(--slate-500);
+      margin-top: .2rem; line-height: 1.5;
+    }
+    .pub-venue {
+      display: inline-flex; align-items: center; gap: .35rem;
+      margin-top: .35rem;
+      font-size: .75rem; font-weight: 600;
+      padding: .2rem .65rem; border-radius: 6px;
+    }
+    .pub-venue.nature { background: #fef3c7; color: #92400e; }
+    .pub-venue.natcomm { background: #dbeafe; color: #1e40af; }
+    .pub-venue.phys { background: #ede9fe; color: #5b21b6; }
+    .pub-venue.chem { background: #fce7f3; color: #9d174d; }
+    .pub-venue.other { background: var(--teal-50); color: var(--teal-800); }
+    .pub-venue.preprint { background: var(--slate-100); color: var(--slate-600); }
+
+    /* ── Talks ── */
+    .talks-grid {
+      display: grid; grid-template-columns: 1fr; gap: .5rem;
+    }
+    .talk-item {
+      display: flex; align-items: baseline; gap: 1rem;
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--slate-100);
+      font-size: .84rem;
+    }
+    .talk-year {
+      flex-shrink: 0; width: 40px;
+      font-weight: 700; color: var(--teal-600);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .8rem;
+    }
+    .talk-venue { color: var(--slate-700); flex: 1; }
+    .talk-type {
+      flex-shrink: 0;
+      font-size: .7rem; font-weight: 600;
+      padding: .15rem .55rem; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .talk-type.invited { background: var(--teal-50); color: var(--teal-700); }
+    .talk-type.contributed { background: var(--slate-100); color: var(--slate-600); }
+
+    /* ── Service ── */
+    .service-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+    }
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+    }
+    .service-card h3 {
+      font-size: .85rem; font-weight: 600; color: var(--teal-700);
+      margin-bottom: .35rem;
+    }
+    .service-card p {
+      font-size: .8rem; color: var(--slate-600); line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--slate-900);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: var(--slate-400);
+      font-size: .8rem;
+    }
+    footer a { color: var(--teal-400); }
+    footer a:hover { color: var(--teal-200); }
+
+    /* ── Divider ── */
+    .section-divider {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .section-divider hr {
+      border: none;
+      height: 1px;
+      background: var(--slate-200);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
+      .hero-text .tagline { margin-left: auto; margin-right: auto; }
+      .hero-links { justify-content: center; }
+      .hero-text h1 { font-size: 2rem; }
+      .edu-grid, .service-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: .75rem; }
+      .talk-item { font-size: .78rem; }
+    }
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      section { padding: 3rem 1.25rem; }
+      .hero { padding: 7rem 1.25rem 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Claudio <span>Zeni</span></div>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-photo">
+      <!-- Replace the placeholder below with: <img src="photo.jpg" alt="Claudio Zeni"> -->
+      <img src="me.jpg" alt="Claudio Zeni">
+    </div>
+    <div class="hero-text">
+      <h1>Claudio Zeni</h1>
+      <div class="subtitle">Senior Researcher · Microsoft Research AI4Science</div>
+      <p class="tagline">
+        Interested in how artificial intelligence can unlock scientific problems that were
+        inaccessible up to now.
+      </p>
+      <div class="hero-links">
+        <a href="https://scholar.google.com/citations?user=QujxEwQAAAAJ&hl=en&oi=ao" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-2a5 5 0 1 0 0-10 5 5 0 0 0 0 10ZM1 8l11-7 11 7v2H1V8Z"/></svg>
+          Scholar
+        </a>
+        <a href="https://www.linkedin.com/in/claudio-zeni/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5v-9h3v9ZM6.5 8.25A1.75 1.75 0 1 1 8.25 6.5 1.75 1.75 0 0 1 6.5 8.25ZM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93a1.74 1.74 0 0 0-1.62 1.84V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.4.86 3.4 3.76V19Z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/ClaudioZeni" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 6.84 9.49c.5.09.68-.22.68-.48v-1.7C6.73 19.91 6.14 18 6.14 18a2.69 2.69 0 0 0-1.13-1.49c-.92-.63.07-.62.07-.62a2.14 2.14 0 0 1 1.56 1.05 2.16 2.16 0 0 0 2.97.84 2.18 2.18 0 0 1 .64-1.35c-2.22-.25-4.56-1.11-4.56-4.95a3.89 3.89 0 0 1 1.03-2.68 3.6 3.6 0 0 1 .1-2.65s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02a3.6 3.6 0 0 1 .1 2.65 3.86 3.86 0 0 1 1.03 2.68c0 3.85-2.34 4.7-4.57 4.95a2.43 2.43 0 0 1 .69 1.89v2.8c0 .27.18.58.69.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2Z"/></svg>
+          GitHub
+        </a>
+        <a href="https://twitter.com/zany_cloud" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+          Twitter/X
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Experience -->
+<section id="experience">
+  <h2 class="section-title">Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item current">
+      <div class="timeline-role">Senior Researcher</div>
+      <div class="timeline-org">Microsoft Research AI4Science · Cambridge, UK</div>
+      <div class="timeline-period">June 2022 — present</div>
+      <div class="timeline-desc">Generative models for materials discovery, machine learning force fields development, and computational tools for materials science.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-role">Postdoctoral Researcher</div>
+      <div class="timeline-org">SISSA · Trieste, Italy</div>
+      <div class="timeline-period">Aug 2020 — May 2022</div>
+      <div class="timeline-desc">Machine learning force fields development and application. Dimensionality reduction techniques and data analysis.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-role">Production Engineer</div>
+      <div class="timeline-org">U-blox · Trieste, Italy</div>
+      <div class="timeline-period">Mar 2020 — Aug 2020</div>
+      <div class="timeline-desc">Python/SQL algorithms for large database analysis and visualization. ML algorithms for failure prediction.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-role">Data Scientist</div>
+      <div class="timeline-org">Local Data Company · London, UK</div>
+      <div class="timeline-period">Feb 2019 — Sep 2019</div>
+      <div class="timeline-desc">Machine learning for anomaly detection, time series analysis and prediction.</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- Education -->
+<section id="education">
+  <h2 class="section-title">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <h3>Ph.D. in Computational Physics</h3>
+        <div class="edu-school">King's College London</div>
+        <div class="edu-meta">2020</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <h3>M.Sc. in Complex Systems</h3>
+        <div class="edu-school">King's College London</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <h3>M.Sc. in Materials Engineering</h3>
+        <div class="edu-school">University of Trieste</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <h3>B.Sc. in Industrial Engineering</h3>
+        <div class="edu-school">University of Trieste</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- Publications -->
+<section id="publications">
+  <h2 class="section-title">Publications</h2>
+
+  <div class="pub-category">Peer-reviewed</div>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://www.nature.com/articles/s41586-025-08628-5" target="_blank">A generative model for inorganic materials design</a></div>
+      <div class="pub-authors">C Zeni, R Pinsler, D Zügner, A Fowler, M Horton, Z Fu, A Shysheya, J Crabbé, L Sun et al.</div>
+      <span class="pub-venue nature">Nature · 2025</span>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://www.nature.com/articles/s41467-021-26199-7" target="_blank">Data-driven simulation and characterisation of gold nanoparticle melting</a></div>
+      <div class="pub-authors">C Zeni, K Rossi, T Pavloudis, J Kioseoglou, S de Gironcoli, RE Palmer, F Baletto</div>
+      <span class="pub-venue natcomm">Nature Communications · 2021</span>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00155e" target="_blank">Divide-and-conquer potentials enable scalable and accurate predictions of forces and energies in atomistic systems</a></div>
+      <div class="pub-authors">C Zeni, A Anelli, A Glielmo, S de Gironcoli, K Rossi</div>
+      <span class="pub-venue other">Digital Discovery · 2024</span>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.105.165141" target="_blank">Exploring the robust extrapolation of high-dimensional machine learning potentials</a></div>
+      <div class="pub-authors">C Zeni, A Anelli, A Glielmo, K Rossi</div>
+      <span class="pub-venue phys">Physical Review B · 2022</span>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://academic.oup.com/pnasnexus/article/1/2/pgac039/6568571" target="_blank">Ranking the information content of distance measures</a></div>
+      <div class="pub-authors">A Glielmo, C Zeni, B Cheng, G Csányi, A Laio</div>
+      <span class="pub-venue other">PNAS Nexus · 2022</span>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://www.cell.com/patterns/fulltext/S2666-3899(22)00199-X" target="_blank">DADApy: Distance-based analysis of data-manifolds in Python</a></div>
+      <div class="pub-authors">A Glielmo, I Macocco, D Doimo, M Carli, C Zeni, R Wild, M d'Errico, A Rodriguez, A Laio</div>
+      <span class="pub-venue other">Patterns · 2022</span>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://pubs.aip.org/aip/jcp/article/154/22/224112/313389" target="_blank">Compact atomic descriptors enable accurate predictions via linear models</a></div>
+      <div class="pub-authors">C Zeni, K Rossi, A Glielmo, S De Gironcoli</div>
+      <span class="pub-venue chem">Journal of Chemical Physics · 2021</span>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://www.tandfonline.com/doi/full/10.1080/23746149.2019.1654919" target="_blank">On machine learning force fields for metallic nanoparticles</a></div>
+      <div class="pub-authors">C Zeni, K Rossi, A Glielmo, F Baletto</div>
+      <span class="pub-venue phys">Advances in Physics: X · 2019</span>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://pubs.aip.org/aip/jcp/article/148/24/241739/1023088" target="_blank">Building machine learning force fields for nanoclusters</a></div>
+      <div class="pub-authors">C Zeni, K Rossi, A Glielmo, Á Fekete, N Gaston, F Baletto, A De Vita</div>
+      <span class="pub-venue chem">Journal of Chemical Physics · 2018</span>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.97.184307" target="_blank">Efficient nonparametric n-body force fields from machine learning</a></div>
+      <div class="pub-authors">A Glielmo, C Zeni, A De Vita</div>
+      <span class="pub-venue phys">Physical Review B · 2018</span>
+    </li>
+  </ul>
+
+  <div class="pub-category">Under Review</div>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://arxiv.org/abs/2503.11568" target="_blank">Probing the Limit of Heat Transfer in Inorganic Crystals with Deep Learning</a></div>
+      <div class="pub-authors">J Li, Z Chen, Q Wang, H Yang, Z Lu, G Li, S Chen, Y Zhu, X Liu, J Tan, M Tang, Y Zhou, C Zeni et al.</div>
+      <span class="pub-venue preprint">arXiv · 2025</span>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://arxiv.org/abs/2405.04967" target="_blank">MatterSim: A deep learning atomistic model across elements, temperatures and pressures</a></div>
+      <div class="pub-authors">H Yang, C Hu, Y Zhou, X Liu, Y Shi, J Li, G Li, Z Chen, S Chen, C Zeni et al.</div>
+      <span class="pub-venue preprint">arXiv · 2024</span>
+    </li>
+  </ul>
+
+  <div class="pub-category">Book Chapters</div>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <div class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-3-030-40245-7_5" target="_blank">Building nonparametric n-body force fields using Gaussian process regression</a></div>
+      <div class="pub-authors">A Glielmo, C Zeni, A Fekete, A De Vita</div>
+      <span class="pub-venue other">Machine Learning Meets Quantum Physics · 2020</span>
+    </li>
+  </ul>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- Talks -->
+<section id="talks">
+  <h2 class="section-title">Selected Talks</h2>
+  <div class="talks-grid">
+    <div class="talk-item">
+      <span class="talk-year">2025</span>
+      <span class="talk-venue">MRS Fall Meeting, Boston, USA</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2025</span>
+      <span class="talk-venue">ICTP Advanced School on Foundation Models, Trieste, Italy</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2025</span>
+      <span class="talk-venue">ICTP 22nd Int. Workshop: Total Energy and Force Methods, Trieste, Italy</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2024</span>
+      <span class="talk-venue">EPFL, Lausanne, Switzerland</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2024</span>
+      <span class="talk-venue">39th Spanish Royal Society of Physics Biennial, San Sebastian, Spain</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2024</span>
+      <span class="talk-venue">nanoGUNE, San Sebastian, Spain</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2024</span>
+      <span class="talk-venue">Data Science Seminar, SISSA, Trieste, Italy</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2024</span>
+      <span class="talk-venue">Lennard-Jones Centre, Cambridge University, UK</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2023</span>
+      <span class="talk-venue">University of Ljubljana, Slovenia</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2023</span>
+      <span class="talk-venue">Aalto University, Helsinki, Finland</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2022</span>
+      <span class="talk-venue">Psi-K Conference, EPFL, Lausanne, Switzerland</span>
+      <span class="talk-type contributed">Contributed</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2022</span>
+      <span class="talk-venue">Lennard-Jones Centre, Cambridge University, UK</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2020</span>
+      <span class="talk-venue">Harvard University, Boston, USA</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2019</span>
+      <span class="talk-venue">OIST, Okinawa, Japan</span>
+      <span class="talk-type contributed">Contributed</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2019</span>
+      <span class="talk-venue">UCL Thomas Young Centre, London, UK</span>
+      <span class="talk-type contributed">Contributed</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2019</span>
+      <span class="talk-venue">Aalto University, Helsinki, Finland</span>
+      <span class="talk-type invited">Invited</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2018</span>
+      <span class="talk-venue">Certosa di Pontignano, Siena, Italy</span>
+      <span class="talk-type contributed">Contributed</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-year">2018</span>
+      <span class="talk-venue">Aalto University, Helsinki, Finland</span>
+      <span class="talk-type contributed">Contributed</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>Claudio Zeni · Senior Researcher · Microsoft Research AI4Science</p>
+  <p style="margin-top: .5rem;">
+    <a href="https://scholar.google.com/citations?user=QujxEwQAAAAJ&hl=en&oi=ao">Scholar</a> ·
+    <a href="https://www.linkedin.com/in/claudio-zeni/">LinkedIn</a> ·
+    <a href="https://github.com/ClaudioZeni">GitHub</a> ·
+    <a href="https://twitter.com/zany_cloud">Twitter/X</a>
+  </p>
+</footer>
+
+</body>
+</html>
