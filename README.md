@@ -1,12 +1,16 @@
-Senior Researcher @ Microsoft Research
+## About me
 
-_____________________________________________________
+I am interested in how artificial intelligence can unlock scientific problems that were inaccessible up to now.\
+Currently working on generative models for the discovery of novel materials with desirable properties.
 
-## Previously
 
-Postdoctoral Researcher @ SISSA
+## Work
 
-Ph.D. Student @ King's College London
+Senior Researcher @ AI4Science Microsoft Research (current)
+
+Postdoctoral Researcher @ SISSA (previously)
+
+Ph.D. Student @ King's College London (previously)
 
 _____________________________________________________
  
@@ -26,14 +30,6 @@ Data-driven simulation and characterisation of gold nanoparticle melting\
 *Claudio Zeni, Kevin Rossi, Theodore Pavloudis, Joseph Kioseoglou, Stefano de Gironcoli, Richard E Palmer, Francesca Baletto*\
 [Nature Communications 12 (1), 6056	31	2021](https://www.nature.com/articles/s41467-021-26199-7)
 
-Efficient nonparametric n-body force fields from machine learning\
-*Aldo Glielmo, Claudio Zeni, Alessandro De Vita*\
-[Physical Review B 97 (18), 184307	144	2018](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.97.184307)
-
-Ranking the information content of distance measures\
-*Aldo Glielmo, Claudio Zeni, Bingqing Cheng, Gábor Csányi, Alessandro Laio*\
-[PNAS nexus 1 (2), pgac039	18	2022](https://academic.oup.com/pnasnexus/article/1/2/pgac039/6568571)
-
 Exploring the robust extrapolation of high-dimensional machine learning potentials\
 *Claudio Zeni, Andrea Anelli, Aldo Glielmo, Kevin Rossi*\
 [Physical Review B 105 (16), 165141	15	2022](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.105.165141)
@@ -42,5 +38,10 @@ Compact atomic descriptors enable accurate predictions via linear models\
 *Claudio Zeni, Kevin Rossi, Aldo Glielmo, Stefano De Gironcoli*\
 [Journal of Chemical Physics 154 (22), 224112	15	2021](https://pubs.aip.org/aip/jcp/article/154/22/224112/313389)
 
+Efficient nonparametric n-body force fields from machine learning\
+*Aldo Glielmo, Claudio Zeni, Alessandro De Vita*\
+[Physical Review B 97 (18), 184307	144	2018](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.97.184307)
 
-
+Ranking the information content of distance measures\
+*Aldo Glielmo, Claudio Zeni, Bingqing Cheng, Gábor Csányi, Alessandro Laio*\
+[PNAS nexus 1 (2), pgac039	18	2022](https://academic.oup.com/pnasnexus/article/1/2/pgac039/6568571)
