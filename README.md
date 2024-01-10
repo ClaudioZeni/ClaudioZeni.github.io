@@ -1,7 +1,5 @@
-## About me
-
-I am interested in how artificial intelligence can unlock scientific problems that were inaccessible up to now.\
-Currently working on generative models for the discovery of novel materials with desirable properties.
+Interested in how artificial intelligence can unlock scientific problems that were inaccessible up to now.\
+Working on generative models for the discovery of novel materials with desirable properties.
 
 
 ## Work
